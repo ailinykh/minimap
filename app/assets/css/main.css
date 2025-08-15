@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+
+@layer utilities {
+  @keyframes textcolor {
+    0%,
+    100% {
+      color: #9ca3af;
+    }
+    50% {
+      color: #d1d5db;
+    }
+  }
+  .animate-textcolor {
+    animation: textcolor 3s ease-in-out infinite;
+  }
+}
