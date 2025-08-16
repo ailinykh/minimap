@@ -15,6 +15,7 @@ type IWebApp = {
   requestFullscreen: () => void
   exitFullscreen: () => void
   // misc
+  platform: string
   showAlert: (message: String, cb?: () => void) => void
 }
 

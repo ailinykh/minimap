@@ -25,7 +25,7 @@ const { onLoaded } = useScript(
 const loading = ref(true)
 
 onLoaded(({ Telegram: { WebApp } }) => {
-  if (!WebApp.isFullscreen) {
+  if (!WebApp.isFullscreen && WebApp.platform != 'web') {
     WebApp.requestFullscreen()
   }
 
