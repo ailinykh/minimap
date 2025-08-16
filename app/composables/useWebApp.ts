@@ -1,7 +1,9 @@
 export default function (): IWebApp {
   const webApp = window.Telegram.WebApp
 
-  if (import.meta.dev && !webApp.LocationManager.isLocationAvailable) {
+  const fakeLocation = localStorage.getItem('fakeLocation') || false
+
+  if (fakeLocation) {
     console.info('using fake LocationManager...')
     return { ...webApp, LocationManager: new LocationManager() }
   }
