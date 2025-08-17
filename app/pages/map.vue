@@ -2,7 +2,7 @@
 const { LocationManager, showAlert } = useWebApp()
 const center = ref({ latitude: 37.588144, longitude: 55.733842 })
 LocationManager.getLocation((location) => {
-  console.log(location)
+  console.log(`current location is ${location}`)
   center.value = location
 })
 
