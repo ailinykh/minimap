@@ -24,12 +24,26 @@ const { onLoaded } = useScript(
 
 const loading = ref(true)
 
-onLoaded(({ Telegram: { WebApp } }) => {
-  if (!WebApp.isFullscreen && !WebApp.platform.startsWith('web')) {
-    WebApp.requestFullscreen()
+onLoaded(async ({ Telegram: { WebApp: webApp } }) => {
+  if (
+    !webApp.isFullscreen &&
+    !['macos', 'web', 'weba'].includes(webApp.platform)
+  ) {
+    webApp.requestFullscreen()
   }
 
-  WebApp.LocationManager.init(() => {
+  const { hash } = useRequestURL()
+  const webAppData = parseInitData(hash)
+
+  await $fetch('/api/session', {
+    method: 'POST',
+    body: { webAppData },
+  }).catch((e) => {
+    // TODO: show error message
+    webApp.showAlert(e)
+  })
+
+  webApp.LocationManager.init(() => {
     loading.value = false
   })
 })

@@ -8,6 +8,8 @@ export default defineNuxtConfig({
     public: {
       yandexApiKey: process.env.YANDEX_API_KEY,
     },
+    telegram_bot_token: process.env.TELEGRAM_BOT_TOKEN,
+    jwt_secret_token: process.env.JWT_SECRET_TOKEN,
   },
   vite: {
     plugins: [tailwindcss()],
