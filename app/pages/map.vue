@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { LocationManager, showAlert } = useWebApp()
+const { LocationManager, showAlert } = await useWebAppAsync()
 const center = ref({ latitude: 37.588144, longitude: 55.733842 })
 LocationManager.getLocation((location) => {
   console.log(`current location is ${location}`)
