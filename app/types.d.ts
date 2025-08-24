@@ -1,4 +1,4 @@
-type ILocationManager = {
+interface ILocationManager {
   init: (cb: () => void) => void
   isInited: boolean
   isLocationAvailable: boolean
@@ -8,7 +8,7 @@ type ILocationManager = {
   openSettings: () => void
 }
 
-type IWebApp = {
+interface IWebApp {
   LocationManager: ILocationManager
   // fullscreen
   isFullscreen: boolean
